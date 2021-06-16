@@ -38,3 +38,57 @@ export const ProfissionaisContainer = styled("div")`
     }
   }
 `;
+
+export const ModalWelcome = styled("div")`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 24px;
+  background-color: ${(props) => props.theme.palette.primary.main};
+  min-width: 400px;
+  height: auto;
+  @media (max-width: 600px) {
+    min-width: 300px;
+  }
+  span {
+    width: 100%;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 50px;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  h1,
+  p {
+    margin: 0;
+  }
+  h1 {
+    border-bottom: 1px solid grey;
+    width: 100%;
+    padding: 25px 0;
+    padding-top: 0;
+    color: white;
+    font-size: 46px;
+    @media (max-width: 600px) {
+      font-size: 22px;
+    }
+  }
+  div {
+    background-color: white;
+    width: 100%;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 30px 0;
+    padding-bottom: 50px;
+    font-size: 22px;
+    color: #353535;
+    font-weight: bold;
+
+    @media (max-width: 600px) {
+      font-size: 15px;
+    }
+  }
+`;

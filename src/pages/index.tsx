@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { PageTitle } from "ui/components/data-display/PageTitle/index";
 import { UserInformation } from "ui/components/data-display/UserInformation";
@@ -14,11 +14,18 @@ import {
   FormElementsContainer,
   ProfissionaisPaper,
   ProfissionaisContainer,
+  ModalWelcome,
 } from "ui/styles/pages/index";
 import TextFieldMask from "../ui/components/Inputs/TextFieldMask";
 import UseIndex from "../data/hooks/pages/useIndex";
+import { ModalComp } from "ui/components/Modal";
 
 export default function Home() {
+  const [welcomeModal, setWelcomeModal] = useState(true);
+  function onClose() {
+    setWelcomeModal(false);
+  }
+
   const {
     cep,
     setCep,
@@ -33,9 +40,26 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      {" "}
+      {welcomeModal && (
+        <ModalComp onClose={onClose}>
+          <ModalWelcome>
+            <span>x</span>
+            <h1>Seja bem vindo</h1>
+            <div>
+              <p>Espero que goste do projeto !</p>
+              <p className={"bord"}>
+                From :
+                <i>
+                  {"<"}Matheus Devs{"/>"}
+                </i>
+              </p>
+            </div>
+          </ModalWelcome>
+        </ModalComp>
+      )}
       <Container>
         <SafeEnvironment />
+
         <PageTitle
           title={"Conheça os profissionais"}
           subtitle={
